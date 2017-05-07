@@ -14,5 +14,3 @@ deploy:
   on:
     repo: ihavenoface/dragonchan-userscript
   skip_cleanup: true
-  on:
-    tags: true
