@@ -7,7 +7,6 @@ const BossDisplay = (doc) => {
   if (previousNode) {
     previousNode.parentNode.removeChild(previousNode);
   }
-  //appendStyle();
   const { style } = health;
   style.position = 'fixed';
   style.top = '40px';
