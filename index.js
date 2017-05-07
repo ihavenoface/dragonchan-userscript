@@ -1,4 +1,5 @@
 import fetchBackend from './src/fetchBackend';
+import './src//scss/base.scss';
 
 (function() {
   'use strict';

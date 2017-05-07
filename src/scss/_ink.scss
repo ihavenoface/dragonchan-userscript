@@ -1,0 +1,144 @@
+.ink-label {
+  padding: 0.2em 0.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.85em;
+  border-radius: 2px;
+}
+
+/* add .warning, .caution, .info, .success class styling to text elements */
+
+h1.warning,
+h2.warning,
+h3.warning,
+h4.warning,
+h5.warning,
+h6.warning,
+p.warning,
+mark.warning,
+label.warning,
+span.warning {
+    padding: 10px 15px;
+    background-color: #ff9c00;
+    color: #ffffff;
+    border-radius: 4px;
+}
+h1.warning.invert,
+h2.warning.invert,
+h3.warning.invert,
+h4.warning.invert,
+h5.warning.invert,
+h6.warning.invert,
+p.warning.invert,
+mark.warning.invert,
+label.warning.invert,
+span.warning.invert {
+    color: #ff9c00;
+    background-color: transparent;
+    padding: 0;
+}
+h1.caution,
+h2.caution,
+h3.caution,
+h4.caution,
+h5.caution,
+h6.caution,
+p.caution,
+mark.caution,
+label.caution,
+span.caution {
+    padding: 10px 15px;
+    color: #ffffff;
+    background-color: #cd0000;
+    border-radius: 4px;
+}
+h1.caution.invert,
+h2.caution.invert,
+h3.caution.invert,
+h4.caution.invert,
+h5.caution.invert,
+h6.caution.invert,
+p.caution.invert,
+mark.caution.invert,
+label.caution.invert,
+span.caution.invert {
+    color: #cd0000;
+    background-color: transparent;
+    padding: 0;
+}
+h1.info,
+h2.info,
+h3.info,
+h4.info,
+h5.info,
+h6.info,
+p.info,
+mark.info,
+label.info,
+span.info {
+    padding: 10px 15px;
+    color: #ffffff;
+    background-color: #0f8bda;
+    border-radius: 4px;
+}
+h1.info.invert,
+h2.info.invert,
+h3.info.invert,
+h4.info.invert,
+h5.info.invert,
+h6.info.invert,
+p.info.invert,
+mark.info.invert,
+label.info.invert,
+span.info.invert {
+    color: #0f8bda;
+    background-color: transparent;
+    padding: 0;
+}
+h1.success,
+h2.success,
+h3.success,
+h4.success,
+h5.success,
+h6.success,
+p.success,
+mark.success,
+label.success,
+span.success {
+    padding: 10px 15px;
+    background-color: #85bd11;
+    color: #ffffff;
+    border-radius: 4px;
+}
+h1.success.invert,
+h2.success.invert,
+h3.success.invert,
+h4.success.invert,
+h5.success.invert,
+h6.success.invert,
+p.success.invert,
+mark.success.invert,
+label.success.invert,
+span.success.invert {
+    color: #85bd11;
+    background-color: transparent;
+    padding: 0;
+}
+label.ink-label.warning,
+mark.ink-label.warning,
+code.ink-label.warning,
+span.ink-label.warning,
+label.ink-label.caution,
+mark.ink-label.caution,
+code.ink-label.caution,
+span.ink-label.caution,
+label.ink-label.info,
+mark.ink-label.info,
+code.ink-label.info,
+span.ink-label.info,
+label.ink-label.success,
+mark.ink-label.success,
+code.ink-label.success,
+span.ink-label.success {
+    padding: 1.75px 3.5px;
+}

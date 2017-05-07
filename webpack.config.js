@@ -15,12 +15,22 @@ module.exports = {
   },
   module: {
     loaders: [{
-      test: /.jsx?$/,
+      test: /\.jsx?$/,
       loader: 'babel-loader',
       exclude: /node_modules/,
       query: {
         presets: ['es2015', 'stage-2'],
       }
+    }, {
+      test: /\.scss$/,
+      use: [{
+        loader: "style-loader"
+      }, {
+        loader: "css-loader"
+      }, {
+        loader: "sass-loader"
+      }],
+      exclude: /node_modules/,
     }]
   },
 };

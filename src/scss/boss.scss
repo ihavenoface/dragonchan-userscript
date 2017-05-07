@@ -1,0 +1,51 @@
+.hp-bar {
+  position: relative;
+  width: 500px;
+  font-family: "Tahoma";
+  font-size: 22px;
+  margin-bottom: 30px;
+
+  .health {
+    float: left;
+    border: 1px solid #999;
+    border-radius: 4px;
+    width: 100%;
+  }
+
+  .health-remaining {
+    float: left;
+    background: #247f00;
+    height: 20px;
+  }
+
+  .health-remaining-text {
+    text-align: center;
+    letter-spacing: .1em;
+    font-family: "Visitor";
+    margin-top: 10px;
+  }
+
+  .health-total-text {
+    position: absolute;
+    top: 25px;
+    right: 3px;
+    letter-spacing: .1em;
+    font-family: "Visitor";
+  }
+  .health-total {
+    float: left;
+    height: 20px;
+  }
+
+  .red {
+     background: #af0000;
+  }
+
+  .orange {
+    background: #ea7900;
+  }
+
+  .yellow {
+    background: #eacc00;
+  }
+}
