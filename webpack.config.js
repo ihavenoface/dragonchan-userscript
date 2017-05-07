@@ -14,12 +14,15 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
-      { test: /\.(woff2?|ttf|eot|svg|png|jpg)(\?.*)?$/, loaders: ['url'] },
-      { test: /\.pug$/, loaders: ['pug'] },
-      { test: /\.sass$/, loaders: ['style', 'css?minimize', 'sass?indentedSyntax'] }
-    ]
-  }
+    loaders: [{
+      test: /.jsx?$/,
+      loader: 'babel-loader',
+      exclude: /node_modules/,
+      query: {
+        presets: ['es2015'],
+      }
+    }]
+  },
 };
 
 if(process.env.NODE_ENV === 'development')
