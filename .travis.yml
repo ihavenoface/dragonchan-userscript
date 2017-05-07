@@ -1,7 +1,0 @@
-install:
-  - npm install
-  - npm install -g webpack
-
-language: bash
-script:
-  - bash pack.sh
