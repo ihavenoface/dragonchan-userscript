@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "iojs"
+
+install:
+  - npm install
+  - npm install -g webpack
+
+script:
+  - $$TRAVIS_BUILD_DIR/pack.sh
