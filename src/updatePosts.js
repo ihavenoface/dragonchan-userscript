@@ -15,12 +15,15 @@ const updatePosts = (g, doc) => {
       }
       const [_, sprites, uid, interactionType] = battleLogPost.children;
       battleLogPost.querySelectorAll('br').forEach(lineBreak => {
-        lineBreak.parentNode.innerHTML = ' ';
+        lineBreak.outerHTML = ' ';
       });
       const interaction = document.createElement('blockquote');
       interaction.appendChild(sprites);
       interaction.appendChild(uid);
       interaction.innerHTML += ' ';
+      const blankSpaceSpan = document.createElement('span');
+      blankSpaceSpan.innerHTML = '&nbsp;';
+      interaction.appendChild(blankSpaceSpan);
       const typeAsSpan = document.createElement('span');
       typeAsSpan.innerHTML = interactionType.innerHTML;
       typeAsSpan.className = interactionType.className;
