@@ -23,4 +23,4 @@
       document.getElementsByTagName('body')[0].appendChild(s);
     }
   });
-})();
+}).call(this);
