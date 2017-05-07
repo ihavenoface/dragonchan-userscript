@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         dragonchan-userscript
 // @namespace    noface
-// @version      0.0.5
+// @version      0.0.6
 // @description  chan Boss raid
 // @author       noface
 // @match        *://boards.4chan.org/bant/thread/*
 // @noframes
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/ihavenoface/dragonchan-userscript/master/userscript.txt
-// @downloadURL  https://github.com/ihavenoface/dragonchan-userscript/releases/download/v0.0.5/dragonchan.user.js
+// @downloadURL  https://github.com/ihavenoface/dragonchan-userscript/releases/download/v0.0.6/dragonchan.user.js
 // ==/UserScript==
