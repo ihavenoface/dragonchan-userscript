@@ -26,8 +26,11 @@ const updatePosts = (g, doc) => {
       interaction.appendChild(damageAsSpan);
       div.appendChild(interaction);
     });
-    if (previousNode && previousNode.innerHTML === div.innerHTML) {
-      return;
+    if (previousNode) {
+      if (previousNode.innerHTML === div.innerHTML) {
+        return;
+      }
+      previousNode.parentNode.removeChild(previousNode);
     }
     post.lastChild.appendChild(div);
   });
