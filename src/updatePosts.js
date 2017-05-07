@@ -3,9 +3,6 @@ const updatePosts = (g, doc) => {
   g.posts.forEach((post, i) => {
     const postID = post.id.slice(2);
     const previousNode = post.querySelector('.dragonchan');
-    if (previousNode) {
-      previousNode.parentNode.removeChild(previousNode);
-    }
     const div = document.createElement('div');
     div.className = 'dragonchan';
     battleLogPosts.forEach((battleLogPost) => {
@@ -29,6 +26,9 @@ const updatePosts = (g, doc) => {
       interaction.appendChild(damageAsSpan);
       div.appendChild(interaction);
     });
+    if (previousNode && previousNode.innerHTML === div.innerHTML) {
+      return;
+    }
     post.lastChild.appendChild(div);
   });
 };
