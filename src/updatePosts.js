@@ -13,7 +13,7 @@ const updatePosts = (g, doc) => {
       if (!a.hash.includes(postID)) {
         return;
       }
-      const [_, sprites, uid, damage] = battleLogPost.children;
+      const [_, sprites, uid, interactionType] = battleLogPost.children;
       battleLogPost.querySelectorAll('br').forEach(lineBreak => {
         lineBreak.parentNode.innerHTML = ' ';
       });
@@ -21,9 +21,10 @@ const updatePosts = (g, doc) => {
       interaction.appendChild(sprites);
       interaction.appendChild(uid);
       interaction.innerHTML += ' ';
-      const damageAsSpan = document.createElement('span');
-      damageAsSpan.innerHTML = damage.innerHTML;
-      interaction.appendChild(damageAsSpan);
+      const typeAsSpan = document.createElement('span');
+      typeAsSpan.innerHTML = interactionType.innerHTML;
+      typeAsSpan.className = interactionType.className;
+      interaction.appendChild(typeAsSpan);
       div.appendChild(interaction);
     });
     if (previousNode) {
