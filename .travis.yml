@@ -7,4 +7,4 @@ install:
   - npm install -g webpack
 
 script:
-  - $$TRAVIS_BUILD_DIR/pack.sh
+  - $TRAVIS_BUILD_DIR/pack.sh
