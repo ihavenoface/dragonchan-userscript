@@ -2,8 +2,12 @@ const updatePosts = (g, doc) => {
   const battleLogPosts = [...doc.querySelectorAll('.ink-l70 tbody tr')].reverse();
   g.posts.forEach((post, i) => {
     const postID = post.id.slice(2);
+    const previousNode = post.querySelector('.dragonchan');
+    if (previousNode) {
+      previousNode.parentNode.removeChild(previousNode);
+    }
     const div = document.createElement('div');
-    //div.style = 'display: inline-table';
+    div.className = 'dragonchan';
     battleLogPosts.forEach((battleLogPost) => {
       const a = battleLogPost.querySelector('a');
       if (!a) {
@@ -17,7 +21,6 @@ const updatePosts = (g, doc) => {
         lineBreak.parentNode.innerHTML = ' ';
       });
       const interaction = document.createElement('blockquote');
-      //div.style = 'display: inline-table';
       interaction.appendChild(sprites);
       interaction.appendChild(uid);
       interaction.innerHTML += ' ';

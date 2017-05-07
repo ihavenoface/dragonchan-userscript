@@ -1,21 +1,23 @@
-import BossDisplay from './src/BossDisplay';
-import updatePosts from './src/updatePosts';
+import fetchBackend from './src/fetchBackend';
 
 (function() {
   'use strict';
 
-  const g = {};
+  fetchBackend();
 
-  g.posts = [...document.querySelectorAll('.thread > .postContainer')];
-  g.OP = g.posts.splice(0, 1)[0];
-
-  fetch(`http://drgchan.ddns.net/${g.OP.id.slice(2)}`)
-    .then(res => res.text())
-    .then(res => {
-      const parser = new DOMParser();
-      res = res.replace(/images\/sprites\/rpg/gi, 'http://drgchan.ddns.net/images/sprites/rpg');
-      const doc = parser.parseFromString(res, 'text/html');
-      BossDisplay(doc);
-      updatePosts(g, doc);
+  const observer = new MutationObserver((mutations) => {
+    const foundNode = mutations.some((mutation) => {
+      return [...mutation.addedNodes].some((node) => {
+        return !node.className.includes('.postContainer');
+      });
     });
+    if (foundNode) {
+      fetchBackend();
+    }
+  });
+
+  const thread = document.body.querySelector('.thread');
+
+  observer.observe(thread, { childList: true });
+
 }).call(this);
