@@ -11,6 +11,10 @@ const BossDisplay = (doc) => {
   style.position = 'fixed';
   style.top = '40px';
   style.right = '10px';
+  const sidebar = doc.querySelector('.sidebar');
+  sidebar.style.overflowY = 'scroll';
+  sidebar.style.height = '330px';
+  health.appendChild(sidebar);
   document.body.appendChild(health);
 };
 
