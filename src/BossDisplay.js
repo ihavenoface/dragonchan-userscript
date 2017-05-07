@@ -1,3 +1,5 @@
+import fetchBackend from './fetchBackend';
+
 const BossDisplay = (doc) => {
   const health = doc.querySelector('.ink-l60');
   if (!health) {
@@ -6,6 +8,9 @@ const BossDisplay = (doc) => {
   const previousNode = document.body.querySelector('.ink-l60');
   if (previousNode) {
     previousNode.parentNode.removeChild(previousNode);
+  }
+  health.querySelector('.health-remaining').onclick = () => {
+    fetchBackend();
   }
   const { style } = health;
   style.position = 'fixed';
