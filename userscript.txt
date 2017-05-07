@@ -8,5 +8,5 @@
 // @noframes
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/ihavenoface/dragonchan-userscript/master/userscript.txt
-// @downloadURL  https://github.com/ihavenoface/dragonchan-userscript/releases/download/master/dragonchan.user.js
+// @downloadURL  https://github.com/ihavenoface/dragonchan-userscript/releases/download/v0.0.5/dragonchan.user.js
 // ==/UserScript==
