@@ -1,6 +1,6 @@
 {
   "name": "dragonchan-userscript",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "chan Boss raid",
   "main": "index.js",
   "scripts": {
