@@ -9,9 +9,12 @@ const BossDisplay = (doc) => {
   if (previousNode) {
     previousNode.parentNode.removeChild(previousNode);
   }
-  health.querySelector('.health').addEventListener('click', () => {
+  const healthBar = health.querySelector('.health');
+  healthBar.addEventListener('click', () => {
     fetchBackend();
   });
+  healthBar.style.cursor = 'pointer';
+  healthBar.title = 'Refresh player stats';
   const { style } = health;
   style.position = 'fixed';
   style.top = '40px';
