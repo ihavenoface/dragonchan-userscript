@@ -9,9 +9,9 @@ const BossDisplay = (doc) => {
   if (previousNode) {
     previousNode.parentNode.removeChild(previousNode);
   }
-  health.querySelector('.health-remaining').onclick = () => {
+  health.querySelector('.health').addEventListener('click', () => {
     fetchBackend();
-  }
+  });
   const { style } = health;
   style.position = 'fixed';
   style.top = '40px';
