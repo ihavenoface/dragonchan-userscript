@@ -1,10 +1,12 @@
+import c from './constants/updatePosts';
+
 const updatePosts = (g, doc) => {
   const battleLogPosts = [...doc.querySelectorAll('.ink-l70 tbody tr')].reverse();
   g.posts.forEach((post, i) => {
     const postID = post.id.slice(2);
-    const previousNode = post.querySelector('.dragonchan');
+    const previousNode = post.querySelector(c.POST_CONTAINER_SELECTOR);
     const div = document.createElement('div');
-    div.className = 'dragonchan';
+    div.className = c.POST_CONTAINER;
     battleLogPosts.forEach((battleLogPost) => {
       const a = battleLogPost.querySelector('a');
       if (!a) {
