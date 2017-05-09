@@ -4,8 +4,11 @@ node_js:
 install:
 - npm install
 - npm install -g webpack
+- npm install -g github-remove-all-releases
 script:
 - "$TRAVIS_BUILD_DIR/pack.sh"
+before_deploy:
+- "github-remove-all-releases ihavenoface dragonchan-userscript"
 deploy:
   provider: releases
   api_key:
