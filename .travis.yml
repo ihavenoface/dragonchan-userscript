@@ -1,9 +1,6 @@
 language: node_js
 node_js:
 - '7'
-branches:
-  only:
-  - placeholder
 install:
 - npm install
 - npm install -g webpack
@@ -18,7 +15,6 @@ deploy:
     secure: OMAgBjV1L7EvinvNYRMoYF18cUN3ugD9qqfBh9wHT4QvHLLNf4nMdV2PvVBPvlmpWFRJR1/UQw1mvHzhI4Szl0FJDshJqkBDlMSVRI0djr/thXuZGZNbdQPUADCp4M33pv4sL9tZD0OZRlRc17enZ7CpKzJMpyTGEN5ICu9tdNXS57qZzrSJK1VY7tdJPLXkFFqY9VNRFW4GcrgaJhogkGpyc1lvIOwIjKzt5tNAGA9mBJj+H9iXMnA3CxRvGiDSRbE2+u2ONG1ZEOpI6B/dq6NwRpKUcLcbwnTRpu6AJO/8k34XvsdmOZ8iw2fZ1yZ7sixA59/sxTGBlZdTzZ1+UJm7m5Ubw494jA3wYrRbigJVnh6eZ6jV9nz1gp2G7VT71+EwfWmzq8CyPR9q8zkwqFfqrWGLCBRuBTo88pKcMZMfjSaQL0if6gROOuJMyOBRiWTyOLw9HbmECGaqHG47nvC7TmSD4WRuj9eUzYJ1vZ2kKIEvEXsxxh6Ovcgww3qU77NsXRLST7OHqc/2rzoZJW14t9+4zTEPFZRoFG1FdtXJqT/SFU/ETE+IvuWSeJ7c7JUVcXAzjnlUqMfvrusu/krPetuxcNwQ4cD9DAAuZuphHYGxrYznFgaLMPHuGNM+CAwIMbkam+7RErT5RKsDU8wtiGHMqB44pQEXR4UpiYQ=
   file: build/dragonchan.user.js
   on:
-    branch: master
     repo: ihavenoface/dragonchan-userscript
     tags: true
   skip_cleanup: true
