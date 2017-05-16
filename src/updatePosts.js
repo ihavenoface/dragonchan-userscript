@@ -1,21 +1,22 @@
 import c from './constants/updatePosts';
 
+async function appendChild(parent, el) {
+  return parent.appendChild(el);
+}
+
 const updatePosts = (g, doc) => {
-  const battleLogPosts = [...doc.querySelectorAll('.ink-l70 tbody tr')].reverse();
-  g.posts.forEach((post, i) => {
+  g.posts.forEach((post) => {
     const postID = post.id.slice(2);
+    const battleLogPosts = [...doc.querySelectorAll(`.ink-l70 a[href$='#p${postID}']`)].reverse();
+    if (!battleLogPosts.length) {
+      return;
+    }
     const previousNode = post.querySelector(c.POST_CONTAINER_SELECTOR);
     const div = document.createElement('div');
     div.className = c.POST_CONTAINER;
     div.appendChild(document.createElement('hr'));
     battleLogPosts.forEach((battleLogPost) => {
-      const a = battleLogPost.querySelector('a');
-      if (!a) {
-        return;
-      }
-      if (!a.hash.includes(postID)) {
-        return;
-      }
+      battleLogPost = battleLogPost.parentNode.parentNode;
       const [_, sprites, uid, interactionType] = battleLogPost.children;
       battleLogPost.querySelectorAll('br').forEach(lineBreak => {
         lineBreak.outerHTML = ' ';
@@ -39,7 +40,7 @@ const updatePosts = (g, doc) => {
       }
       previousNode.parentNode.removeChild(previousNode);
     }
-    post.lastChild.appendChild(div);
+    appendChild(post.lastChild, div);
   });
 };
 
