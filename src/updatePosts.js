@@ -42,7 +42,7 @@ const updatePosts = (g, doc) => {
       if (previousNode.innerText === div.innerText) {
         return;
       }
-      removeChild(el);
+      removeChild(previousNode);
     }
     appendChild(post.lastChild, div);
   });
