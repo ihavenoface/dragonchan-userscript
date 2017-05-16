@@ -7,6 +7,7 @@ const updatePosts = (g, doc) => {
     const previousNode = post.querySelector(c.POST_CONTAINER_SELECTOR);
     const div = document.createElement('div');
     div.className = c.POST_CONTAINER;
+    div.appendChild(document.createElement('hr'));
     battleLogPosts.forEach((battleLogPost) => {
       const a = battleLogPost.querySelector('a');
       if (!a) {
