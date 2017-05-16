@@ -1,7 +1,7 @@
 # dragonchan-userscript
 Display boss and player stats directly in thread.
 
-![Screenshot](https://i.cubeupload.com/dx9xkK.png)
+![Screenshot](https://i.cubeupload.com/hvAi0w.png)
 
 ## How do I use it?
 
