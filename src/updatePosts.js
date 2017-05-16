@@ -4,6 +4,10 @@ async function appendChild(parent, el) {
   return parent.appendChild(el);
 }
 
+async function removeChild(el) {
+  return el.parentNode.removeChild(el);
+}
+
 const updatePosts = (g, doc) => {
   g.posts.forEach((post) => {
     const postID = post.id.slice(2);
@@ -38,7 +42,7 @@ const updatePosts = (g, doc) => {
       if (previousNode.innerText === div.innerText) {
         return;
       }
-      previousNode.parentNode.removeChild(previousNode);
+      removeChild(el);
     }
     appendChild(post.lastChild, div);
   });
