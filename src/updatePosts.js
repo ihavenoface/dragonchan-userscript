@@ -33,7 +33,7 @@ const updatePosts = (g, doc) => {
       div.appendChild(interaction);
     });
     if (previousNode) {
-      if (previousNode.innerHTML === div.innerHTML) {
+      if (previousNode.innerText === div.innerText) {
         return;
       }
       previousNode.parentNode.removeChild(previousNode);
