@@ -9,7 +9,7 @@ import './src/scss/base.scss';
   const observer = new MutationObserver((mutations) => {
     const foundNode = mutations.some((mutation) => {
       return [...mutation.addedNodes].some((node) => {
-        return !node.className.includes('.postContainer');
+        return node.className.includes('postContainer');
       });
     });
     if (foundNode) {
