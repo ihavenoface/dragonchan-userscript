@@ -4,18 +4,19 @@ async function appendChild(parent, el) {
   return parent.appendChild(el);
 }
 
-async function removeChild(el) {
+function removeChild(el) {
   return el.parentNode.removeChild(el);
 }
 
 const updatePosts = (g, doc) => {
   g.posts.forEach((post) => {
     const postID = post.id.slice(2);
-    const battleLogPosts = [...doc.querySelectorAll(`.ink-l70 a[href$='#p${postID}']`)].reverse();
+    const battleLogPosts = [
+      ...doc.querySelectorAll(`.ink-l70 a[href$='#p${postID}']`)
+    ].reverse();
     if (!battleLogPosts.length) {
       return;
     }
-    const previousNode = post.querySelector(c.POST_CONTAINER_SELECTOR);
     const div = document.createElement('div');
     div.className = c.POST_CONTAINER;
     div.appendChild(document.createElement('hr'));
@@ -38,6 +39,13 @@ const updatePosts = (g, doc) => {
       interaction.appendChild(typeAsSpan);
       div.appendChild(interaction);
     });
+    let previousNode = post.querySelectorAll(c.POST_CONTAINER_SELECTOR);
+    if (previousNode[1]) {
+      [...previousNode].forEach((node) => {
+        removeChild(node);
+      });
+    }
+    previousNode = previousNode[0];
     if (previousNode) {
       if (previousNode.innerText === div.innerText) {
         return;
