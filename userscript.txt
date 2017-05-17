@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         dragonchan-userscript
 // @namespace    noface
-// @version      0.0.7
+// @version      0.0.8
 // @description  chan Boss raid
 // @author       noface
 // @match        *://boards.4chan.org/bant/thread/*
