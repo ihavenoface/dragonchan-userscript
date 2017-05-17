@@ -3,7 +3,7 @@ import updatePosts from './updatePosts';
 
 const fetchBackend = () => {
   const g = {};
-  const host = 'https://dragonchan.duckdns.org';
+  const host = 'https://dragonchan.000webhostapp.com';
 
   g.posts = [...document.querySelectorAll('.thread > .postContainer')];
   g.OP = g.posts.splice(0, 1)[0];
