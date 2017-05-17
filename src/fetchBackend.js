@@ -3,16 +3,16 @@ import updatePosts from './updatePosts';
 
 const fetchBackend = () => {
   const g = {};
-  const host = 'dragonchan.000webhostapp.com';
+  const host = '//dragonchan.duckdns.org';
 
   g.posts = [...document.querySelectorAll('.thread > .postContainer')];
   g.OP = g.posts.splice(0, 1)[0];
 
-  fetch(`//${host}/${g.OP.id.slice(2)}`)
+  fetch(`${host}/${g.OP.id.slice(2)}`)
     .then(res => res.text())
     .then(res => {
       const parser = new DOMParser();
-      res = res.replace(/images\/sprites\/rpg/gi, `//${host}/images/sprites/rpg`);
+      res = res.replace(/images\/sprites\/rpg/gi, `${host}/images/sprites/rpg`);
       const doc = parser.parseFromString(res, 'text/html');
       BossDisplay(doc);
       updatePosts(g, doc);
