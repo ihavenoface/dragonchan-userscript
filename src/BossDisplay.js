@@ -12,6 +12,16 @@ const initContainer = () => {
   document.body.appendChild(container);
 };
 
+const createToggle = () => {
+  const toggle = document.createElement('div');
+  toggle.className = c.TOGGLE_STATS;
+  toggle.innerHTML = 'TOGGLE STATS'.split('').join('<br>');
+  toggle.addEventListener('click', () => {
+    container.classList.toggle('hidden');
+  });
+  return toggle;
+};
+
 const BossDisplay = (doc) => {
   initContainer();
   const health = doc.querySelector(c.HEALTH_SELECTOR);
@@ -27,9 +37,12 @@ const BossDisplay = (doc) => {
   let scrollPosition = 0;
   if (previousNode) {
     scrollPosition = previousNode.querySelector(c.SIDEBAR_SELECTOR).scrollTop;
-    previousNode.parentNode.removeChild(previousNode);
+    container.innerHTML = '';
   }
   container.appendChild(health);
+  if (!container.querySelector(c.TOGGLE_STATS_SELECTOR)) {
+    container.appendChild(createToggle());
+  }
   sidebar.scrollTop = scrollPosition;
 };
 
