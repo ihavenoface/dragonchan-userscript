@@ -1,6 +1,6 @@
 import c from './constants/updatePosts';
 
-async function appendChild(parent, el) {
+function appendChild(parent, el) {
   return parent.appendChild(el);
 }
 
@@ -50,7 +50,11 @@ const updatePosts = (g, doc) => {
       }
       removeChild(previousNode);
     }
-    appendChild(post.lastChild, div);
+    setTimeout(
+      () => {
+        appendChild(post.lastChild, div);
+      }
+    , 0);
   });
 };
 
