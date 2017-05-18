@@ -8,6 +8,10 @@ function removeChild(el) {
   return el.parentNode.removeChild(el);
 }
 
+function replaceChild(newChild, oldChild) {
+  return oldChild.parentNode.replaceChild(oldChild, newChild);
+}
+
 const updatePosts = (g, doc) => {
   g.posts.forEach((post) => {
     const battleLogPosts = [
@@ -37,18 +41,19 @@ const updatePosts = (g, doc) => {
       interaction.appendChild(typeAsSpan);
       div.appendChild(interaction);
     });
-    let previousNode = post.querySelectorAll(c.POST_CONTAINER_SELECTOR);
+    let previousNode = post.getElementsByClassName(c.POST_CONTAINER);
     if (previousNode[1]) {
-      [...previousNode].forEach((node) => {
+      previousNode.forEach((node) => {
         removeChild(node);
       });
     }
     previousNode = previousNode[0];
     if (previousNode) {
-      if (previousNode.innerText === div.innerText) {
+      if (previousNode.innerHTML === div.innerHTML) {
         return;
       }
-      removeChild(previousNode);
+      replaceChild(previousNode, div);
+      return;
     }
     setTimeout(
       () => {
