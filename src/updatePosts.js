@@ -10,9 +10,8 @@ function removeChild(el) {
 
 const updatePosts = (g, doc) => {
   g.posts.forEach((post) => {
-    const postID = post.id.slice(2);
     const battleLogPosts = [
-      ...doc.querySelectorAll(`.ink-l70 a[href$='#p${postID}']`)
+      ...doc.getElementsByClassName(`${post.id}`)
     ].reverse();
     if (!battleLogPosts.length) {
       return;
@@ -21,7 +20,6 @@ const updatePosts = (g, doc) => {
     div.className = c.POST_CONTAINER;
     div.appendChild(document.createElement('hr'));
     battleLogPosts.forEach((battleLogPost) => {
-      battleLogPost = battleLogPost.parentNode.parentNode;
       const [_, sprites, uid, interactionType] = battleLogPost.children;
       battleLogPost.querySelectorAll('br').forEach(lineBreak => {
         lineBreak.outerHTML = ' ';
