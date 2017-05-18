@@ -47,6 +47,8 @@
   }
 }
 
-.ink-table td {
-  display: block;
+.ink-table {
+  td[colspan="4"] > span, td {
+    display: block;
+  }
 }
