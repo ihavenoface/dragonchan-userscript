@@ -11,7 +11,7 @@ function removeChild(el) {
 const updatePosts = (g, doc) => {
   g.posts.forEach((post) => {
     const battleLogPosts = [
-      ...doc.getElementsByClassName(`${post.id}`)
+      ...doc.getElementsByClassName(post.id),
     ].reverse();
     if (!battleLogPosts.length) {
       return;
