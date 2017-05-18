@@ -9,6 +9,9 @@ function removeChild(el) {
 }
 
 function replaceChild(newChild, oldChild) {
+  if (!oldChild.parentNode) {
+    return;
+  }
   return oldChild.parentNode.replaceChild(oldChild, newChild);
 }
 
@@ -48,7 +51,7 @@ const updatePosts = (g, doc) => {
       });
     }
     previousNode = previousNode[0];
-    if (previousNode) {
+    if (typeof previousNode !== 'undefined' && previousNode !== null) {
       if (previousNode.innerHTML === div.innerHTML) {
         return;
       }
