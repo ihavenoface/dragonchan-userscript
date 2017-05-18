@@ -1,7 +1,6 @@
 .hp-bar {
   position: relative;
-  width: 500px;
-  font-family: "Tahoma";
+  width: 410px;
   font-size: 22px;
   margin-bottom: 30px;
 
@@ -21,7 +20,6 @@
   .health-remaining-text {
     text-align: center;
     letter-spacing: .1em;
-    font-family: "Visitor";
     margin-top: 10px;
   }
 
@@ -30,7 +28,6 @@
     top: 25px;
     right: 3px;
     letter-spacing: .1em;
-    font-family: "Visitor";
   }
   .health-total {
     float: left;
@@ -48,4 +45,8 @@
   .yellow {
     background: #eacc00;
   }
+}
+
+.ink-table td {
+  display: block;
 }
