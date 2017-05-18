@@ -1,3 +1,9 @@
+& {
+  position: fixed;
+  top: 40px;
+  right: 10px;
+}
+
 .hp-bar {
   position: relative;
   width: 410px;
@@ -9,6 +15,7 @@
     border: 1px solid #999;
     border-radius: 4px;
     width: 100%;
+    cursor: pointer;
   }
 
   .health-remaining {
@@ -51,4 +58,9 @@
   td[colspan="4"] > span, td {
     display: block;
   }
+}
+
+.sidebar {
+  overflow-y: scroll;
+  height: 330px;
 }
