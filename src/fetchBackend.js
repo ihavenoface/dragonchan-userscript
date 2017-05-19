@@ -5,10 +5,10 @@ const fetchBackend = () => {
   const g = {};
   const host = 'https://dragonchan.duckdns.org';
 
-  g.posts = Array.prototype.slice.call(
-    document.getElementsByClassName('thread')[0]
+  g.posts = [
+    ...document.getElementsByClassName('thread')[0]
       .getElementsByClassName('postContainer'),
-  );
+  ];
   g.OP = g.posts.splice(0, 1)[0];
 
   fetch(`${host}/${g.OP.id.slice(2)}`)

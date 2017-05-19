@@ -28,7 +28,7 @@ const updatePosts = (g, doc) => {
     div.appendChild(document.createElement('hr'));
     battleLogPosts.forEach((battleLogPost) => {
       const [_, sprites, uid, interactionType] = battleLogPost.children;
-      battleLogPost.querySelectorAll('br').forEach(lineBreak => {
+      [...battleLogPost.querySelectorAll('br')].forEach(lineBreak => {
         lineBreak.outerHTML = ' ';
       });
       const interaction = document.createElement('blockquote');
@@ -44,7 +44,7 @@ const updatePosts = (g, doc) => {
       interaction.appendChild(typeAsSpan);
       div.appendChild(interaction);
     });
-    let previousNode = post.getElementsByClassName(c.POST_CONTAINER);
+    let previousNode = [...post.getElementsByClassName(c.POST_CONTAINER)];
     if (previousNode[1]) {
       previousNode.forEach((node) => {
         removeChild(node);

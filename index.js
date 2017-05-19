@@ -8,8 +8,7 @@ import './src/scss/base.scss';
 
   const observer = new MutationObserver((mutations) => {
     const foundNode = mutations.some((mutation) => {
-      const arr = Array.prototype.slice.call(mutation.addedNodes);
-      return arr.some((node) => {
+      return [...mutation.addedNodes].some((node) => {
         return node.className.includes('postContainer');
       });
     });
