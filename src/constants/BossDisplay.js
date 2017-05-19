@@ -4,6 +4,7 @@ export default {
   HEALTH_SELECTOR: '.ink-l60',
   HEALTHBAR_SELECTOR: '.health',
   TOGGLE_STATS: 'toggle-stats',
+  TOGGLE_STATS_LS_KEY: 'dragonchan-hide-stats',
   TOGGLE_STATS_SELECTOR: '.toggle-stats',
   SIDEBAR_SELECTOR: '.sidebar',
 };

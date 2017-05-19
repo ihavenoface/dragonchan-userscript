@@ -8,7 +8,9 @@ const initContainer = () => {
     return;
   }
   container = document.createElement('div');
-  container.className = c.CONTAINER;
+  container.className = localStorage[c.TOGGLE_STATS_LS_KEY] ?
+    localStorage[c.TOGGLE_STATS_LS_KEY]
+  : c.CONTAINER;
   document.body.appendChild(container);
 };
 
@@ -17,7 +19,11 @@ const createToggle = () => {
   toggle.className = c.TOGGLE_STATS;
   toggle.innerHTML = 'TOGGLE STATS'.split('').join('<br>');
   toggle.addEventListener('click', () => {
-    container.classList.toggle('hidden');
+    if (!container.classList.toggle('hidden')) {
+      localStorage.removeItem(c.TOGGLE_STATS_LS_KEY);
+      return;
+    }
+    localStorage[c.TOGGLE_STATS_LS_KEY] = container.className;
   });
   return toggle;
 };
