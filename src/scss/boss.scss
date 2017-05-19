@@ -2,22 +2,22 @@
   position: fixed;
   top: 40px;
   right: 0;
-  display: table;
+  display: flex;
 }
 
 &.hidden .ink-l60 {
-  visibility: hidden;
+  display: none;
 }
 
 .ink-l60 {
-  display: table-cell;
+  display: grid;
 }
 
 .toggle-stats {
   width: 25px;
   text-align: center;
   vertical-align: middle;
-  display: table-cell;
+  display: table;
   cursor: pointer;
   user-select: none;
   &:hover {
