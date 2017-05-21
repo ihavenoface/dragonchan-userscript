@@ -15,14 +15,30 @@ function replaceChild(newChild, oldChild) {
   return oldChild.parentNode.replaceChild(oldChild, newChild);
 }
 
+function pairPostsAndLogs(posts, logs) {
+  const pairs = {};
+  posts.forEach((post) => {
+    pairs[post.id] = {};
+    pairs[post.id].post = post;
+  });
+  for (const log of logs) {
+    const id = log.classList[1];
+    pairs[id].logs = pairs[id].logs || [];
+    pairs[id].logs.push(log);
+  }
+  return pairs;
+}
+
 const updatePosts = (g, doc) => {
-  g.posts.forEach((post) => {
-    const battleLogPosts = [
-      ...doc.getElementsByClassName(post.id),
-    ].reverse();
-    if (!battleLogPosts.length) {
-      return;
+  const pairs = pairPostsAndLogs(
+    g.posts, doc.getElementsByClassName('battlelog'),
+  );
+  for (const id in pairs) {
+    if (!pairs[id].logs) {
+      continue;
     }
+    const { post, logs } = pairs[id];
+    const battleLogPosts = Object.assign([], logs).reverse();
     const div = document.createElement('div');
     div.className = c.POST_CONTAINER;
     div.appendChild(document.createElement('hr'));
@@ -63,7 +79,7 @@ const updatePosts = (g, doc) => {
         appendChild(post.lastChild, div);
       }
     , 0);
-  });
+  }
 };
 
 export default updatePosts;
