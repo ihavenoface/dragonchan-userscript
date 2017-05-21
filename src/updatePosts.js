@@ -20,6 +20,7 @@ function pairPostsAndLogs(posts, logs) {
   posts.forEach((post) => {
     pairs[post.id] = {};
     pairs[post.id].post = post;
+    pairs[post.id].previousNodes = post.getElementsByClassName(c.POST_CONTAINER);
   });
   for (const log of logs) {
     const id = log.classList[1];
@@ -31,22 +32,22 @@ function pairPostsAndLogs(posts, logs) {
 
 const updatePosts = (g, doc) => {
   const pairs = pairPostsAndLogs(
-    g.posts, doc.getElementsByClassName('battlelog'),
+    g.posts,
+    doc.getElementsByClassName('battlelog'),
   );
   for (const id in pairs) {
     if (!pairs[id].logs) {
       continue;
     }
-    const { post, logs } = pairs[id];
-    const battleLogPosts = Object.assign([], logs).reverse();
+    const { post, logs, previousNodes } = pairs[id];
     const div = document.createElement('div');
     div.className = c.POST_CONTAINER;
     div.appendChild(document.createElement('hr'));
-    battleLogPosts.forEach((battleLogPost) => {
+    logs.reverse().forEach((battleLogPost) => {
       const [_, sprites, uid, interactionType] = battleLogPost.children;
-      [...battleLogPost.querySelectorAll('br')].forEach(lineBreak => {
+      for (const lineBreak of battleLogPost.getElementsByTagName('BR')) {
         lineBreak.outerHTML = ' ';
-      });
+      }
       const interaction = document.createElement('blockquote');
       interaction.appendChild(sprites);
       interaction.appendChild(uid);
@@ -60,19 +61,18 @@ const updatePosts = (g, doc) => {
       interaction.appendChild(typeAsSpan);
       div.appendChild(interaction);
     });
-    let previousNode = [...post.getElementsByClassName(c.POST_CONTAINER)];
-    if (previousNode[1]) {
-      previousNode.forEach((node) => {
+    if (previousNodes[1]) {
+      for (const node of previousNodes) {
         removeChild(node);
-      });
+      }
     }
-    previousNode = previousNode[0];
+    const previousNode = previousNodes[0];
     if (typeof previousNode !== 'undefined' && previousNode !== null) {
-      if (previousNode.innerHTML === div.innerHTML) {
-        return;
+      if (div.isEqualNode(previousNode)) {
+        continue;
       }
       replaceChild(previousNode, div);
-      return;
+      continue;
     }
     setTimeout(
       () => {
